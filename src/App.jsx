@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         path="/"
         element={[<Header />, <Navbar />, <Home />, <Footer />]}
       />
+      <Route path="/dashboard" element={[<Header/>, <Navbar />, <Dashboard />, <Footer />]} />
     </Routes>
   );
 };
