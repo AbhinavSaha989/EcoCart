@@ -31,6 +31,14 @@ function Home() {
             image="/mixer.jpg"
             badge_id={0}
           />
+          <Product
+            id="49538094"
+            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
+            price={239.0}
+            rating={4}
+            image="/mixer.jpg"
+            badge_id={0}
+          />
         </div>
 
         {/* Row 2 */}
@@ -63,6 +71,22 @@ function Home() {
 
         {/* Row 3 */}
         <div className="flex justify-center px-2 z-10 mt-4">
+          <Product
+            id="90829332"
+            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
+            price={1094.98}
+            rating={4}
+            image="/monitor.jpg"
+            badge_id={0}
+          />
+          <Product
+            id="90829332"
+            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
+            price={1094.98}
+            rating={4}
+            image="/monitor.jpg"
+            badge_id={0}
+          />
           <Product
             id="90829332"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"

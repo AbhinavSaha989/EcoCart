@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Leaf } from "lucide-react"; // using lucide-react for icons
+import { Leaf } from "lucide-react"; 
 
 const Navbar = () => {
   return (
@@ -29,7 +29,7 @@ const Navbar = () => {
 
           {/* EcoCart CTA */}
           <div className="relative group ml-4">
-            <Link to="/green" className="no-underline">
+            <Link to="/ecocart" className="no-underline">
               <button className="flex items-center bg-green-600 hover:bg-green-700 text-white text-sm py-1 px-3 rounded-lg animate-pulse transition">
                 <Leaf className="w-4 h-4 mr-1" />
                 EcoCart
