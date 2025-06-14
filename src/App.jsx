@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import GreenHeader from "./components/GreenHeader";
 import GreenNavbar from "./components/GreenNavbar";
 import GreenHome from "./components/GreenHome";
+import ProductDetails from "./components/ProductDetails";
 
 const App = () => {
   return (
@@ -16,10 +17,17 @@ const App = () => {
         path="/"
         element={[<Header />, <Navbar />, <Home />, <Footer />]}
       />
-      <Route path="/dashboard" element={[<Header/>, <Navbar />, <Dashboard />, <Footer />]} />
+      <Route
+        path="/dashboard"
+        element={[<GreenHeader />, <GreenNavbar />, <Dashboard />, <Footer />]}
+      />
       <Route
         path="/ecocart"
         element={[<GreenHeader />, <GreenNavbar />, <GreenHome />, <Footer />]}
+      />
+      <Route
+        path="/product/:id"
+        element={[<GreenHeader />, <GreenNavbar />, <ProductDetails />, <Footer />]}
       />
     </Routes>
   );
