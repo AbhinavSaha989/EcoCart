@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import GreenHeader from "./components/GreenHeader";
 import GreenNavbar from "./components/GreenNavbar";
 import GreenHome from "./components/GreenHome";
+import GreenChain from "./components/greenChain";
 import ProductDetails from "./components/ProductDetails";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         path="/ecocart"
         element={[<GreenHeader />, <GreenNavbar />, <GreenHome />, <Footer />]}
       />
+      <Route path="/green-chain" element = {[<Header />, <Navbar />, <GreenChain /> ,<Footer />]} />
       <Route
         path="/product/:id"
         element={[<GreenHeader />, <GreenNavbar />, <ProductDetails />, <Footer />]}
