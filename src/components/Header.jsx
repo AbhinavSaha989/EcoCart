@@ -43,10 +43,10 @@ function Header() {
           </div>
         </Link>
 
-        <Link to="/ecocart" className="no-underline text-white mx-2 bg-green-600 hover:bg-green-700 rounded-md">
+        <Link to="/dashboard" className="no-underline text-white mx-2">
             <div className="flex flex-col hover:shadow-[0_0_0_0.5px_white] px-2">
-            <span className="text-[10px]">To</span>
-                <span className="text-[13px] font-extrabold">EcoCart</span>
+            <span className="text-[10px]">Your</span>
+                <span className="text-[13px] font-extrabold">Dashboard</span>
             </div>
         </Link>
 
