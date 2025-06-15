@@ -1,4 +1,3 @@
-import React from "react";
 
 function OrderConfirmation() {
   // Example censored address
