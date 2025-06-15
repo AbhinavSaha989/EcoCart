@@ -1,39 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const useStateValue = () => {
-  return [
-    {
-      basket: [
-        { id: "001", title: "Eco Bamboo Cup", price: 12.99 },
-        { id: "002", title: "Jute Tote Bag", price: 9.49 },
-      ],
-    },
-    (action) => console.log("Mock dispatch >>>", action),
-  ];
-};
+import useCartStore from "../store/cartStore"; // <-- Import Zustand store
 
 function GreenProduct({ title, image, id, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
-
-  const addToBasket = () => {
-    dispatch({
-      type: "ADD_TO_BASKET",
-      item: {
-        id,
-        title,
-        image,
-        price,
-        rating,
-      },
-    });
-  };
+  const addToCart = useCartStore((state) => state.addToCart); // <-- Zustand addToCart
 
   return (
-    <Link
-      to={`/product/${id}`}
-      className="flex flex-col justify-between items-center m-3 p-4 w-[270px] h-[460px] bg-white shadow-md rounded-lg transition-transform hover:scale-105"
-    >
+    <div className="flex flex-col justify-between items-center m-3 p-4 w-[270px] h-[460px] bg-white shadow-md rounded-lg transition-transform hover:scale-105">
       <div className="text-xs font-semibold text-green-600">BESTSELLER</div>
 
       <img
@@ -60,15 +33,19 @@ function GreenProduct({ title, image, id, price, rating }) {
       </div>
 
       <button
-        onClick={(e) => {
-          e.preventDefault(); // prevent navigating when clicking button
-          addToBasket();
-        }}
+        onClick={() => addToCart({ id, title, image, price, rating })}
         className="bg-[#febd69] text-black px-6 py-2 rounded shadow hover:bg-[#f9c989] font-bold"
       >
         Add to Cart
       </button>
-    </Link>
+
+      <Link
+        to={`/product/${id}`}
+        className="mt-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold"
+      >
+        Check My Score
+      </Link>
+    </div>
   );
 }
 

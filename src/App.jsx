@@ -10,6 +10,8 @@ import GreenNavbar from "./components/GreenNavbar";
 import GreenHome from "./components/GreenHome";
 import GreenChain from "./components/greenChain";
 import ProductDetails from "./components/ProductDetails";
+import Checkout from "./components/Checkout";
+import OrderConfirmation from "./components/OrderConfirmation";
 
 const App = () => {
   return (
@@ -30,6 +32,14 @@ const App = () => {
       <Route
         path="/product/:id"
         element={[<GreenHeader />, <GreenNavbar />, <ProductDetails />, <Footer />]}
+      />
+      <Route
+        path="/checkout"
+        element={[<GreenHeader />, <GreenNavbar />, <Checkout />, <Footer />]}
+      />
+      <Route
+        path="/order-confirmation"
+        element={[<GreenHeader />, <GreenNavbar />, <OrderConfirmation />, <Footer />]}
       />
     </Routes>
   );

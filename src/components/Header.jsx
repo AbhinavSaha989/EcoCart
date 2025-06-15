@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useCartStore from "../store/cartStore"; // <-- Add this import
 
 function Header() {
+  const cartCount = useCartStore((state) => state.cart.length); // <-- Get cart count
+
   const handleLinkClick = () => {
     window.scrollTo(0, 0, { behavior: "instant" });
   };
@@ -44,10 +47,10 @@ function Header() {
         </Link>
 
         <Link to="/dashboard" className="no-underline text-white mx-2">
-            <div className="flex flex-col hover:shadow-[0_0_0_0.5px_white] px-2">
+          <div className="flex flex-col hover:shadow-[0_0_0_0.5px_white] px-2">
             <span className="text-[10px]">Your</span>
-                <span className="text-[13px] font-extrabold">Dashboard</span>
-            </div>
+            <span className="text-[13px] font-extrabold">Dashboard</span>
+          </div>
         </Link>
 
         <Link
@@ -61,7 +64,9 @@ function Header() {
               className="p-[5px] h-[29px] bg-[#131921] shrink-0"
               alt="cart"
             />
-            <span className="mx-[10px] text-[13px] font-extrabold">0</span>
+            <span className="mx-[10px] text-[13px] font-extrabold">
+              {cartCount}
+            </span>
           </div>
         </Link>
       </div>

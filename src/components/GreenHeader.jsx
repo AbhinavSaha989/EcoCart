@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Search } from "lucide-react";
+import useCartStore from "../store/cartStore"; // <-- Import Zustand store
 
 function GreenHeader() {
-  const basket = [1, 2, 3]; // Mocked basket
+  const cartCount = useCartStore((state) => state.cart.length); // <-- Zustand cart count
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0, { behavior: "instant" });
@@ -61,7 +62,7 @@ function GreenHeader() {
           className="flex items-center space-x-1"
         >
           <ShoppingCart className="text-white" />
-          <span className="font-bold">{basket.length}</span>
+          <span className="font-bold">{cartCount}</span>
         </Link>
       </div>
     </div>

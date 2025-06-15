@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import useCartStore from "../store/cartStore"; // <-- Import Zustand store
 
 function Productbutton({ title, image, id, price, rating, badge_id }) {
-  const [cartCount, setCartCount] = useState(0); // Local cart mock
+  const addToCart = useCartStore((state) => state.addToCart); // <-- Zustand addToCart
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
   };
 
-  const addToBasket = () => {
-    setCartCount(cartCount + 1);
-    // In real use, this would update a global cart
-    console.log("Added to cart:", {
-      id,
-      title,
-      image,
-      price,
-      rating,
-      badge_id,
-    });
+  const handleAddToCart = () => {
+    addToCart({ id, title, image, price, rating, badge_id });
+    // Optionally, you can show a toast or feedback here
   };
 
   return (
@@ -43,19 +36,11 @@ function Productbutton({ title, image, id, price, rating, badge_id }) {
         className="w-full max-h-[200px] object-contain mb-4"
       />
       <button
-        onClick={addToBasket}
+        onClick={handleAddToCart}
         className="bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-2 px-6 rounded shadow"
       >
-        Add to Cart ({cartCount})
+        Add to Cart
       </button>
-      <Link to="/product">
-        <button
-          onClick={handleLinkClick}
-          className="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-6 mt-3 rounded shadow"
-        >
-          Available on Greenovation
-        </button>
-      </Link>
     </div>
   );
 }
