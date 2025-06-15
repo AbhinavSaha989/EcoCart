@@ -1,4 +1,3 @@
-import React from "react";
 import { Route , Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -12,6 +11,7 @@ import GreenChain from "./components/greenChain";
 import ProductDetails from "./components/ProductDetails";
 import Checkout from "./components/Checkout";
 import OrderConfirmation from "./components/OrderConfirmation";
+import About from "./components/About";
 
 const App = () => {
   return (
@@ -40,6 +40,10 @@ const App = () => {
       <Route
         path="/order-confirmation"
         element={[<GreenHeader />, <GreenNavbar />, <OrderConfirmation />, <Footer />]}
+      />
+      <Route
+        path="/about"
+        element={[<GreenHeader />, <GreenNavbar />, <About />, <Footer />]}
       />
     </Routes>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/cartStore";
 
@@ -57,12 +56,14 @@ function GreenProduct({ title, image, id, price, rating, ecoFriendly, CO2 }) {
         Add to Cart
       </button>
 
-      <Link
-        to={`/product/${id}`}
-        className="mt-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold"
-      >
-        Check My Score
-      </Link>
+      {ecoFriendly && (
+        <Link
+          to={`/product/${id}`}
+          className="mt-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold"
+        >
+          Check My Score
+        </Link>
+      )}
     </div>
   );
 }

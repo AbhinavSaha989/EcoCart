@@ -35,14 +35,14 @@ function GreenHeader() {
 
       {/* Navigation */}
       <div className="flex space-x-6 text-white text-sm font-semibold">
-        <Link to="/login" className="hover:underline">
+        <Link to="/green-chain" className="hover:underline">
           <div>
-            <p className="text-xs">Hello Guest</p>
-            <p className="font-bold">Sign In</p>
+            <p className="text-xs">Your</p>
+            <p className="font-bold">Green Chain</p>
           </div>
         </Link>
 
-        <Link to="/orders" className="hover:underline">
+        <Link to="/#" className="hover:underline">
           <div>
             <p className="text-xs">Returns</p>
             <p className="font-bold">& Orders</p>

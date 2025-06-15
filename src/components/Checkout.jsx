@@ -2,29 +2,204 @@ import React, { useState, useEffect } from "react";
 import useCartStore from "../store/cartStore";
 import { Link, useNavigate } from "react-router-dom";
 
-// Example eco-friendly alternatives (should match your GreenHome products)
-const ecoAlternatives = [
+// Non-eco-friendly (Home) products
+const nonEcoProducts = [
+  {
+    id: "12321341",
+    title:
+      "Disposable Plastic Drinking Straws  a pack of 100 clear, BPA-free straws designed for convenience and reliability, 7.75-inch",
+    price: 7.5,
+    rating: 3,
+    image: "/image1.png",
+    ecoFriendly: false,
+    CO2: 2.0,
+  },
+  {
+    id: "49538094",
+    title:
+      "Single-Use Plastic Plates pack of 50 durable, lightweight plates for parties and events",
+    price: 9.9,
+    rating: 4,
+    image: "/image2.png",
+    ecoFriendly: false,
+    CO2: 4.0,
+  },
+  {
+    id: "49538094",
+    title: "Plastic Water Bottles – 24 pack of 500 ml single-use water bottles",
+    price: 11.5,
+    rating: 4,
+    image: "/image3.png",
+    ecoFriendly: false,
+    CO2: 10.0,
+  },
+  {
+    id: "3254354345",
+    title: "Disposable Coffee Cups pack of 50 with lids, 12 oz, to-go style",
+    price: 14.9,
+    rating: 4,
+    image: "/image4.png",
+    ecoFriendly: false,
+    CO2: 6.0,
+  },
+  {
+    id: "23445930",
+    title:
+      "Plastic Cutlery Set 100 piece pack (forks, knives, spoons), lightweight and convenient",
+    price: 5.5,
+    rating: 3,
+    image: "/image5.png",
+    ecoFriendly: false,
+    CO2: 3.0,
+  },
+  {
+    id: "958462",
+    title:
+      "Grocery Plastic Bags pack of 500, lightweight and reusable once or twice",
+    price: 12.9,
+    rating: 2,
+    image: "/image6.png",
+    ecoFriendly: false,
+    CO2: 5.0,
+  },
+  {
+    id: "90829332",
+    title:
+      "Single-Use Cotton Pads pack of 100, soft, non-reusable cosmetics pads",
+    price: 4.5,
+    rating: 3,
+    image: "/image7.png",
+    ecoFriendly: false,
+    CO2: 1.5,
+  },
+  {
+    id: "90829332",
+    title: "Plastic Toothbrush pack of 5, non-biodegradable dental care",
+    price: 6.9,
+    rating: 4,
+    image: "/image8.png",
+    ecoFriendly: false,
+    CO2: 1.0,
+  },
+  {
+    id: "90829332",
+    title: "Plastic Snack Bags 100 piece, single use, resealable",
+    price: 7.9,
+    rating: 3,
+    image: "/image9.png",
+    ecoFriendly: false,
+    CO2: 2.0,
+  },
+  {
+    id: "90829332",
+    title: "Plastic Razor – pack of 10, disposable, lightweight",
+    price: 8.5,
+    rating: 2,
+    image: "/image10.png",
+    ecoFriendly: false,
+    CO2: 1.5,
+  },
+];
+
+
+
+// Eco-friendly (GreenHome) products
+const ecoProducts = [
   {
     id: "843800",
     title:
-      "Beco Bamboo Kitchen Towels, 100% Natural and Ecofriendly Alternative",
-    price: 6.35,
-    rating: 5,
-    image: "/tissue_eco.jpg",
+      "Biodegradable Paper Drinking Straws pack of 100, compostable, 7.75-inch",
+    price: 8.9,
+    rating: 4,
+    image: "/image11.png",
     ecoFriendly: true,
-    CO2: 0.3,
+    CO2: 0.08, // Updated: Very low for compostable paper straws
   },
   {
     id: "875615",
-    title: "Jutify Eco-Friendly Printed Canvas Shopping Tote Bag",
-    price: 15.35,
-    rating: 4,
-    image: "/bag_eco.jpg",
+    title:
+      "Compostable Paper Plates pack of 50, heavy-duty, plant-fiber material",
+    price: 11.9,
+    rating: 5,
+    image: "/image12.png",
     ecoFriendly: true,
-    CO2: 0.5,
+    CO2: 0.15, // Updated: Low for compostable plates
   },
-  // ...add more as needed
+  {
+    id: "875617",
+    title: "Reusable Water Bottle 500 ml, BPA-free, stainless steel",
+    price: 19.9,
+    rating: 4,
+    image: "/image13.png",
+    ecoFriendly: true,
+    CO2: 0.05, // Updated: Low, amortized over many uses
+  },
+  {
+    id: "9513254",
+    title: "Compostable Coffee Cup pack of 50 with lids, 12 oz, plant-based",
+    price: 16.9,
+    rating: 4,
+    image: "/image14.png",
+    ecoFriendly: true,
+    CO2: 0.18, // Updated: Low for compostable cups
+  },
+  {
+    id: "1001002",
+    title: "Bamboo Cutlery Set reusable, lightweight, durable, 100% natural",
+    price: 9.5,
+    rating: 5,
+    image: "/image15.png",
+    ecoFriendly: true,
+    CO2: 0.07, // Updated: Very low for bamboo, reusable
+  },
+  {
+    id: "1657495",
+    title: "Compostable Produce Bags pack of 500, plant-starch material",
+    price: 15.9,
+    rating: 4,
+    image: "/image16.png",
+    ecoFriendly: true,
+    CO2: 0.12, // Updated: Low for compostable bags
+  },
+  {
+    id: "1657495",
+    title: "Organic Cotton Pads pack of 100, reusable, soft, eco-conscious",
+    price: 7.9,
+    rating: 5,
+    image: "/image17.png",
+    ecoFriendly: true,
+    CO2: 0.09, // Updated: Low for organic, reusable pads
+  },
+  {
+    id: "1657495",
+    title: "Bamboo Toothbrush pack of 5, biodegradable handle, medium bristles",
+    price: 9.9,
+    rating: 4,
+    image: "/image18.png",
+    ecoFriendly: true,
+    CO2: 0.06, // Updated: Very low for bamboo, biodegradable
+  },
+  {
+    id: "1625854",
+    title: "Silicone Snack Bags reusable, food-safe, leak-proof, set of 100",
+    price: 14.9,
+    rating: 5,
+    image: "/image19.png",
+    ecoFriendly: true,
+    CO2: 0.25, // Updated: Low, reusable for years
+  },
+  {
+    id: "1625957",
+    title: "Safety Razor metal handle, reusable, eco-conscious alternative",
+    price: 24.9,
+    rating: 5,
+    image: "/image20.png",
+    ecoFriendly: true,
+    CO2: 0.09, // Updated: Low, reusable for years
+  },
 ];
+
+
 
 // CO2 level helper
 function getCO2Level(CO2) {
@@ -154,9 +329,18 @@ function Checkout() {
     navigate("/order-confirmation");
   };
 
-  // Find a random eco-friendly alternative for demo purposes
-  const getEcoAlternative = () =>
-    ecoAlternatives[Math.floor(Math.random() * ecoAlternatives.length)];
+  // Find the recommended eco alternative for a non-eco product by index
+  const getEcoAlternative = (item) => {
+    // Find index of item in nonEcoProducts by id and title
+    const idx = nonEcoProducts.findIndex(
+      (p) => p.id === item.id && p.title === item.title
+    );
+    if (idx !== -1 && ecoProducts[idx]) {
+      return ecoProducts[idx];
+    }
+    // fallback: first eco product
+    return ecoProducts[0];
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -260,7 +444,9 @@ function Checkout() {
             <ul>
               {cart.map((item, idx) => {
                 const co2Level = getCO2Level(item.CO2);
-                const ecoAlt = getEcoAlternative();
+                const ecoAlt = !item.ecoFriendly
+                  ? getEcoAlternative(item)
+                  : null;
                 return (
                   <li
                     key={item.id + idx}
@@ -297,7 +483,7 @@ function Checkout() {
                       </button>
                     </div>
                     {/* What if section for non-eco-friendly products */}
-                    {!item.ecoFriendly && (
+                    {!item.ecoFriendly && ecoAlt && (
                       <div className="bg-green-50 border border-green-200 rounded p-3 mt-2 flex items-center justify-between">
                         <div>
                           <div className="font-semibold text-green-700 mb-1">
@@ -369,15 +555,31 @@ function Checkout() {
           </>
         )}
       </div>
-      {/* Modal for eco-friendly alternative with bar graphs */}
+      {/* Modal for eco-friendly alternative with bar graphs and both images */}
       {modalProduct && modalCompare && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/10 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
-            <img
-              src={modalProduct.image}
-              alt={modalProduct.title}
-              className="w-24 h-24 mx-auto mb-4 object-contain"
-            />
+            <div className="flex justify-center items-center gap-4 mb-4">
+              <div>
+                <img
+                  src={modalCompare.image}
+                  alt={modalCompare.title}
+                  className="w-20 h-20 object-contain rounded border"
+                  title="Current Product"
+                />
+                <div className="text-xs mt-1 text-gray-500">In Cart</div>
+              </div>
+              <span className="text-3xl font-bold text-green-600">→</span>
+              <div>
+                <img
+                  src={modalProduct.image}
+                  alt={modalProduct.title}
+                  className="w-20 h-20 object-contain rounded border"
+                  title="Eco Alternative"
+                />
+                <div className="text-xs mt-1 text-green-700">Eco Alt</div>
+              </div>
+            </div>
             <h3 className="text-lg font-bold mb-2">{modalProduct.title}</h3>
             <p className="mb-4 text-green-700 font-semibold">
               Eco-Friendly Choice!

@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useCartStore from "../store/cartStore";
 
-// Mock product data with unique ecoScore and targetStats
+
 const mockProducts = [
   {
     id: "843800",
-    title: "Beco Bamboo Kitchen Towels, 100% Natural and Ecofriendly Alternative",
-    image: "/tissue_eco.jpg",
-    price: 6.35,
-    originalPrice: 8.99,
-    rating: 5,
+    title:
+      "Biodegradable Paper Drinking Straws pack of 100, compostable, 7.75-inch",
+    image: "/image11.png",
+    price: 8.9,
+    originalPrice: 12.99,
+    rating: 4,
     ecoScore: 9.2,
+    ecoFriendly: true,
+    CO2: 0.08, // Updated: Very low for compostable paper straws
     targetStats: [
       { label: "Reusability", value: 85 },
       { label: "Recyclability", value: 95 },
@@ -20,12 +23,15 @@ const mockProducts = [
   },
   {
     id: "875615",
-    title: "Jutify Eco-Friendly Printed Canvas Shopping Tote Bag",
-    image: "/bag_eco.jpg",
-    price: 15.35,
-    originalPrice: 19.95,
-    rating: 4,
+    title:
+      "Compostable Paper Plates pack of 50, heavy-duty, plant-fiber material",
+    image: "/image12.png",
+    price: 11.9,
+    originalPrice: 15.99,
+    rating: 5,
     ecoScore: 8.7,
+    ecoFriendly: true,
+    CO2: 0.15, // Updated: Low for compostable plates
     targetStats: [
       { label: "Reusability", value: 95 },
       { label: "Recyclability", value: 80 },
@@ -34,12 +40,14 @@ const mockProducts = [
   },
   {
     id: "875617",
-    title: "Qudrat Biodegradable Natural Coconut Leaf Straws (100 Pack)",
-    image: "/straw_eco.jpg",
-    price: 8.99,
-    originalPrice: 12.99,
+    title: "Reusable Water Bottle 500 ml, BPA-free, stainless steel",
+    image: "/image13.png",
+    price: 19.9,
+    originalPrice: 24.99,
     rating: 4,
     ecoScore: 8.1,
+    ecoFriendly: true,
+    CO2: 0.05, // Updated: Low, amortized over many uses
     targetStats: [
       { label: "Reusability", value: 60 },
       { label: "Recyclability", value: 90 },
@@ -48,12 +56,14 @@ const mockProducts = [
   },
   {
     id: "9513254",
-    title: "Wooden Eyewear Holder Made With Sheesham Wood",
-    image: "/sunglasses_eco.jpg",
-    price: 37.99,
-    originalPrice: 49.99,
-    rating: 3,
+    title: "Compostable Coffee Cup pack of 50 with lids, 12 oz, plant-based",
+    image: "/image14.png",
+    price: 16.9,
+    originalPrice: 22.99,
+    rating: 4,
     ecoScore: 7.5,
+    ecoFriendly: true,
+    CO2: 0.18, // Updated: Low for compostable cups
     targetStats: [
       { label: "Reusability", value: 80 },
       { label: "Recyclability", value: 70 },
@@ -62,12 +72,14 @@ const mockProducts = [
   },
   {
     id: "1001002",
-    title: "Terracotta Clay Water Bottle | Plastic-Free",
-    image: "/bottle_eco.jpg",
-    price: 25.78,
-    originalPrice: 32.99,
+    title: "Bamboo Cutlery Set reusable, lightweight, durable, 100% natural",
+    image: "/image15.png",
+    price: 9.5,
+    originalPrice: 13.99,
     rating: 5,
     ecoScore: 8.9,
+    ecoFriendly: true,
+    CO2: 0.07, // Updated: Very low for bamboo, reusable
     targetStats: [
       { label: "Reusability", value: 90 },
       { label: "Recyclability", value: 85 },
@@ -76,12 +88,14 @@ const mockProducts = [
   },
   {
     id: "1657495",
-    title: "Bamboo Dish Mats / Coasters 30x30cm | Durable",
-    image: "/mats_eco.jpg",
-    price: 21,
-    originalPrice: 29.99,
+    title: "Compostable Produce Bags pack of 500, plant-starch material",
+    image: "/image16.png",
+    price: 15.9,
+    originalPrice: 19.99,
     rating: 4,
     ecoScore: 8.3,
+    ecoFriendly: true,
+    CO2: 0.12, // Updated: Low for compostable bags
     targetStats: [
       { label: "Reusability", value: 88 },
       { label: "Recyclability", value: 92 },
@@ -89,27 +103,31 @@ const mockProducts = [
     ],
   },
   {
-    id: "1625854",
-    title: "Hand Made Jute Hanging Chair | Durable & Stylish",
-    image: "/hangingchair_eco.png",
-    price: 599.99,
-    originalPrice: 799.99,
-    rating: 4,
-    ecoScore: 7.8,
+    id: "1657496",
+    title: "Organic Cotton Pads pack of 100, reusable, soft, eco-conscious",
+    image: "/image17.png",
+    price: 7.9,
+    originalPrice: 11.99,
+    rating: 5,
+    ecoScore: 8.5,
+    ecoFriendly: true,
+    CO2: 0.09, // Updated: Low for organic, reusable pads
     targetStats: [
-      { label: "Reusability", value: 75 },
-      { label: "Recyclability", value: 60 },
-      { label: "Resale", value: 80 },
+      { label: "Reusability", value: 90 },
+      { label: "Recyclability", value: 95 },
+      { label: "Resale", value: 50 },
     ],
   },
   {
-    id: "1625957",
-    title: "Eco-Friendly Foldable Bamboo Laundry Basket - 57L",
-    image: "/bamboolaundry.jpg",
-    price: 20.99,
-    originalPrice: 27.99,
+    id: "1657497",
+    title: "Bamboo Toothbrush pack of 5, biodegradable handle, medium bristles",
+    image: "/image18.png",
+    price: 9.9,
+    originalPrice: 13.99,
     rating: 4,
     ecoScore: 8.0,
+    ecoFriendly: true,
+    CO2: 0.06, // Updated: Very low for bamboo, biodegradable
     targetStats: [
       { label: "Reusability", value: 85 },
       { label: "Recyclability", value: 88 },
@@ -117,20 +135,40 @@ const mockProducts = [
     ],
   },
   {
-    id: "958745",
-    title: "Sow and Grow Plantable Recycled Paper Pencils (Pack of 10)",
-    image: "/pencils_eco.jpg",
-    price: 14.0,
+    id: "1625854",
+    title: "Silicone Snack Bags reusable, food-safe, leak-proof, set of 100",
+    image: "/image19.png",
+    price: 14.9,
     originalPrice: 19.99,
-    rating: 4,
+    rating: 5,
     ecoScore: 8.6,
+    ecoFriendly: true,
+    CO2: 0.25, // Updated: Low, reusable for years
     targetStats: [
       { label: "Reusability", value: 70 },
       { label: "Recyclability", value: 98 },
       { label: "Resale", value: 30 },
     ],
   },
+  {
+    id: "1625957",
+    title: "Safety Razor metal handle, reusable, eco-conscious alternative",
+    image: "/image20.png",
+    price: 24.9,
+    originalPrice: 29.99,
+    rating: 5,
+    ecoScore: 8.2,
+    ecoFriendly: true,
+    CO2: 0.09, // Updated: Low, reusable for years
+    targetStats: [
+      { label: "Reusability", value: 95 },
+      { label: "Recyclability", value: 90 },
+      { label: "Resale", value: 60 },
+    ],
+  },
 ];
+
+
 
 function ProductDetails() {
   const { id } = useParams();
@@ -143,7 +181,7 @@ function ProductDetails() {
     product.targetStats.map(() => 0)
   );
 
-  const addToCart = useCartStore((state) => state.addToCart); // <-- Zustand addToCart
+  const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     // Animate Eco Score
@@ -170,7 +208,7 @@ function ProductDetails() {
   }, [product]);
 
   const handleAddToCart = () => {
-    addToCart(product); // <-- Add to global cart
+    addToCart(product);
   };
 
   return (
@@ -186,6 +224,12 @@ function ProductDetails() {
         </div>
         <div className="mt-4 text-xl font-semibold text-green-600">
           Eco Score: <span>{animatedScore.toFixed(1)}/10</span>
+        </div>
+        <div className="mt-2 text-sm text-gray-700">
+          <span className="font-semibold">CO₂:</span> {product.CO2} kg
+        </div>
+        <div className="mt-1 text-xs text-green-700">
+          {product.ecoFriendly ? "Eco-Friendly" : "Not Eco-Friendly"}
         </div>
       </div>
 

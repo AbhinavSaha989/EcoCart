@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 
 function ImageSliderGreen() {
   const imgs = [
-    { id: 3, value: "../4.jpg" },
-    { id: 4, value: "../5.jpg" },
+    { id: 0, value: "/carousel_4.jpg" },
+    { id: 1, value: "/carousel_5.jpg" },
+    { id: 2, value: "/carousel_2.jpg" },
+    { id: 3, value: "/carousel_1.jpg" },
   ];
 
   const [val, setVal] = useState(0);

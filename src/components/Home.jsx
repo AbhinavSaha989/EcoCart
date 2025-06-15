@@ -8,67 +8,83 @@ function Home() {
         {/* ImageSlider as banner */}
         <ImageSlider />
 
-        {/* Banner Image */}
-
         {/* Row 1 */}
         <div className="flex flex-wrap justify-center gap-4 px-2 z-10">
           <GreenProduct
             id="12321341"
-            title="Disposable Plastic Drinking Straws – a pack of 100 clear, BPA-free straws designed for convenience and reliability, 7.75-inch"
+            title="Disposable Plastic Drinking Straws  a pack of 100 clear, BPA-free straws designed for convenience and reliability, 7.75-inch"
             price={7.5}
             rating={3}
-            image="/straw.jpg"
+            image="/image1.png"
             ecoFriendly={false}
-            CO2={0.4}
+            CO2={2.0} // Higher CO2 for 100 plastic straws
           />
           <GreenProduct
             id="49538094"
-            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
+            title="Single-Use Plastic Plates pack of 50 durable, lightweight plates for parties and events"
+            price={9.9}
             rating={4}
-            image="/mixer.jpg"
+            image="/image2.png"
             ecoFriendly={false}
-            CO2={3.2}
+            CO2={4.0} // Higher CO2 for 50 plates
           />
           <GreenProduct
             id="49538094"
-            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
+            title="Plastic Water Bottles – 24 pack of 500 ml single-use water bottles"
+            price={11.5}
             rating={4}
-            image="/mixer.jpg"
+            image="/image3.png"
             ecoFriendly={false}
-            CO2={3.2}
+            CO2={10.0} // Higher CO2 for 24 bottles
+          />
+          <GreenProduct
+            id="3254354345"
+            title="Disposable Coffee Cups pack of 50 with lids, 12 oz, to-go style"
+            price={14.9}
+            rating={4}
+            image="/image4.png"
+            ecoFriendly={false}
+            CO2={6.0} // Higher CO2 for 50 cups
           />
         </div>
 
         {/* Row 2 */}
         <div className="flex flex-wrap justify-center gap-4 px-2 z-10 mt-4">
           <GreenProduct
-            id="3254354345"
-            title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
-            price={598.99}
-            rating={4}
-            image="/tablet.jpg"
-            ecoFriendly={false}
-            CO2={80}
-          />
-          <GreenProduct
             id="23445930"
-            title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
-            price={98.99}
-            rating={5}
-            image="/echo.jpg"
+            title="Plastic Cutlery Set 100 piece pack (forks, knives, spoons), lightweight and convenient"
+            price={5.5}
+            rating={3}
+            image="/image5.png"
             ecoFriendly={false}
-            CO2={12}
+            CO2={3.0} // Higher CO2 for 100 pieces
           />
           <GreenProduct
             id="958462"
-            title="Woven Bag for Women, Leather Tote Bag Large Summer Beach Travel Handbag and Purse Retro Handmade Shoulder Bag"
-            price={19.99}
-            rating={5}
-            image="/leatherbag.jpg"
+            title="Grocery Plastic Bags pack of 500, lightweight and reusable once or twice"
+            price={12.9}
+            rating={2}
+            image="/image6.png"
             ecoFriendly={false}
-            CO2={1.1}
+            CO2={5.0} // Higher CO2 for 500 bags
+          />
+          <GreenProduct
+            id="90829332"
+            title="Single-Use Cotton Pads pack of 100, soft, non-reusable cosmetics pads"
+            price={4.5}
+            rating={3}
+            image="/image7.png"
+            ecoFriendly={false}
+            CO2={1.5} // Higher CO2 for 100 pads
+          />
+          <GreenProduct
+            id="90829332"
+            title="Plastic Toothbrush pack of 5, non-biodegradable dental care"
+            price={6.9}
+            rating={4}
+            image="/image8.png"
+            ecoFriendly={false}
+            CO2={1.0} // Higher CO2 for 5 brushes
           />
         </div>
 
@@ -76,30 +92,21 @@ function Home() {
         <div className="flex justify-center px-2 z-10 mt-4">
           <GreenProduct
             id="90829332"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-            price={1094.98}
-            rating={4}
-            image="/monitor.jpg"
+            title="Plastic Snack Bags 100 piece, single use, resealable"
+            price={7.9}
+            rating={3}
+            image="/image9.png"
             ecoFriendly={false}
-            CO2={120}
+            CO2={2.0} // Higher CO2 for 100 bags
           />
           <GreenProduct
             id="90829332"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-            price={1094.98}
-            rating={4}
-            image="/monitor.jpg"
+            title="Plastic Razor – pack of 10, disposable, lightweight"
+            price={8.5}
+            rating={2}
+            image="/image10.png"
             ecoFriendly={false}
-            CO2={120}
-          />
-          <GreenProduct
-            id="90829332"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-            price={1094.98}
-            rating={4}
-            image="/monitor.jpg"
-            ecoFriendly={false}
-            CO2={120}
+            CO2={1.5} // Higher CO2 for 10 razors
           />
         </div>
       </div>

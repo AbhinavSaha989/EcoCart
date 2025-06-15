@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 
 function ImageSlider() {
   const imgs = [
-    { id: 0, value: "/prime_ad_slider.jpg" },
-    { id: 1, value: "/carousel_4.jpg" },
-    { id: 2, value: "/carousel_5.jpg" },
-    { id: 3, value: "/carousel_2.jpg" },
-    { id: 4, value: "/carousel_1.jpg" },
+    { id: 0, value: "/carousel_4.jpg" },
+    { id: 1, value: "/carousel_5.jpg" },
+    { id: 2, value: "/carousel_2.jpg" },
+    { id: 3, value: "/carousel_1.jpg" },
   ];
 
   const [val, setVal] = useState(0);
@@ -25,7 +24,7 @@ function ImageSlider() {
   }, [val]);
 
   return (
-    <div className="relative w-full flex flex-col items-center overflow-hidden">
+    <div className="flex flex-col items-center relative">
       {imgs[val].type === "video/mp4" ? (
         <video
           autoPlay
