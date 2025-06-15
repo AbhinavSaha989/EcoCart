@@ -13,10 +13,10 @@ const GreenChain = () => {
                 <Stats />
             </div>
             <div className="flex gap-x-4 justify-center items-center flex-wrap height ">
-                <div className="flex-1 m-4 p-4 b border border-gray-400 rounded-lg p-4 h-[350px]">
+                <div className="flex-1 m-4  b border border-gray-400 rounded-lg p-4 h-[350px]">
                     <MonthlyGraph />
                 </div>
-                <div className="flex-1 m-4 p-4 border border-gray-400 rounded-lg p-4 h-[350px]">
+                <div className="flex-1 m-4  border border-gray-400 rounded-lg p-4 h-[350px]">
                      <div className="flex flex-col justify-between">
                         <MonthlyEcoQuest />
                      </div>

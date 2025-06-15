@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/cartStore"; // <-- Add this import
 
@@ -32,10 +31,10 @@ function Header() {
       </div>
 
       <div className="flex justify-evenly ml-4 whitespace-nowrap overflow-hidden">
-        <Link to="/login" className="no-underline text-white mx-2">
+        <Link to="/green-chain" className="no-underline text-white mx-2">
           <div className="flex flex-col hover:shadow-[0_0_0_0.5px_white] px-2">
-            <span className="text-[10px]">Hello Guest</span>
-            <span className="text-[13px] font-extrabold">Sign In</span>
+            <span className="text-[10px]">Your</span>
+            <span className="text-[13px] font-extrabold">Green Chain</span>
           </div>
         </Link>
 
