@@ -6,7 +6,7 @@ const GreenNavbar = () => {
     <div className="bg-[#232f3e] text-white font-semibold text-sm h-10 flex items-center px-5">
       <ul className="flex flex-wrap items-center gap-5 w-full overflow-x-auto">
         <li>
-          <Link to="/ecocart" className="text-[#146eb4] hover:text-[#FF9900]">
+          <Link to="/ecocart" className="text-[#14b451] hover:text-[#FF9900]">
             Home
           </Link>
         </li>
@@ -17,12 +17,12 @@ const GreenNavbar = () => {
         </li>
         <li>
           <a href="#" className="hover:text-[#FF9900]">
-            Amazon Pay
+            Amazon miniTV
           </a>
         </li>
         <li>
           <a href="#" className="hover:text-[#FF9900]">
-            Amazon miniTV
+            Amazon Pay
           </a>
         </li>
         <li>
@@ -46,23 +46,11 @@ const GreenNavbar = () => {
           </a>
         </li>
         <li>
-          <Link to="/seller" className="text-[#146eb4] hover:text-[#FF9900]">
-            Seller
+          <Link to="/about" className="text-[#14b451] hover:text-[#FF9900]">
+            About
           </Link>
         </li>
-        <li>
-          <Link to="/education" className="text-[#146eb4] hover:text-[#FF9900]">
-            Educational Section
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/sustainability"
-            className="text-[#146eb4] hover:text-[#FF9900]"
-          >
-            Sustainability Reports
-          </Link>
-        </li>
+
         <li>
           <a href="#" className="hover:text-[#FF9900]">
             More

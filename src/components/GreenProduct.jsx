@@ -1,12 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useCartStore from "../store/cartStore"; // <-- Import Zustand store
+import useCartStore from "../store/cartStore";
 
-function GreenProduct({ title, image, id, price, rating }) {
-  const addToCart = useCartStore((state) => state.addToCart); // <-- Zustand addToCart
+function getCO2Level(CO2) {
+  if (CO2 < 0.5)
+    return { label: "Low CO₂", color: "bg-green-200 text-green-800" };
+  if (CO2 < 1.5)
+    return { label: "Medium CO₂", color: "bg-yellow-200 text-yellow-800" };
+  return { label: "High CO₂", color: "bg-red-200 text-red-800" };
+}
+
+function GreenProduct({ title, image, id, price, rating, ecoFriendly, CO2 }) {
+  const addToCart = useCartStore((state) => state.addToCart);
+  const co2Level = getCO2Level(CO2);
 
   return (
-    <div className="flex flex-col justify-between items-center m-3 p-4 w-[270px] h-[460px] bg-white shadow-md rounded-lg transition-transform hover:scale-105">
+    <div className="flex flex-col justify-between items-center m-3 p-4 w-[270px] h-[480px] bg-white shadow-md rounded-lg transition-transform hover:scale-105">
       <div className="text-xs font-semibold text-green-600">BESTSELLER</div>
 
       <img
@@ -32,8 +41,17 @@ function GreenProduct({ title, image, id, price, rating }) {
           ))}
       </div>
 
+      {/* CO2 Level Indicator */}
+      <div
+        className={`mb-2 px-3 py-1 rounded-full text-xs font-bold ${co2Level.color}`}
+      >
+        {co2Level.label} ({CO2} kg CO₂)
+      </div>
+
       <button
-        onClick={() => addToCart({ id, title, image, price, rating })}
+        onClick={() =>
+          addToCart({ id, title, image, price, rating, ecoFriendly, CO2 })
+        }
         className="bg-[#febd69] text-black px-6 py-2 rounded shadow hover:bg-[#f9c989] font-bold"
       >
         Add to Cart
