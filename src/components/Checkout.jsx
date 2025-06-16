@@ -101,9 +101,7 @@ const nonEcoProducts = [
   },
 ];
 
-
-
-// Eco-friendly (GreenHome) products
+// Eco-friendly (GreenHome) products with updated CO2 values
 const ecoProducts = [
   {
     id: "843800",
@@ -113,7 +111,7 @@ const ecoProducts = [
     rating: 4,
     image: "/image11.png",
     ecoFriendly: true,
-    CO2: 0.08, // Updated: Very low for compostable paper straws
+    CO2: 0.08,
   },
   {
     id: "875615",
@@ -123,7 +121,7 @@ const ecoProducts = [
     rating: 5,
     image: "/image12.png",
     ecoFriendly: true,
-    CO2: 0.15, // Updated: Low for compostable plates
+    CO2: 0.15,
   },
   {
     id: "875617",
@@ -132,7 +130,7 @@ const ecoProducts = [
     rating: 4,
     image: "/image13.png",
     ecoFriendly: true,
-    CO2: 0.05, // Updated: Low, amortized over many uses
+    CO2: 0.05,
   },
   {
     id: "9513254",
@@ -141,7 +139,7 @@ const ecoProducts = [
     rating: 4,
     image: "/image14.png",
     ecoFriendly: true,
-    CO2: 0.18, // Updated: Low for compostable cups
+    CO2: 0.18,
   },
   {
     id: "1001002",
@@ -150,7 +148,7 @@ const ecoProducts = [
     rating: 5,
     image: "/image15.png",
     ecoFriendly: true,
-    CO2: 0.07, // Updated: Very low for bamboo, reusable
+    CO2: 0.07,
   },
   {
     id: "1657495",
@@ -159,7 +157,7 @@ const ecoProducts = [
     rating: 4,
     image: "/image16.png",
     ecoFriendly: true,
-    CO2: 0.12, // Updated: Low for compostable bags
+    CO2: 0.12,
   },
   {
     id: "1657495",
@@ -168,7 +166,7 @@ const ecoProducts = [
     rating: 5,
     image: "/image17.png",
     ecoFriendly: true,
-    CO2: 0.09, // Updated: Low for organic, reusable pads
+    CO2: 0.09,
   },
   {
     id: "1657495",
@@ -177,7 +175,7 @@ const ecoProducts = [
     rating: 4,
     image: "/image18.png",
     ecoFriendly: true,
-    CO2: 0.06, // Updated: Very low for bamboo, biodegradable
+    CO2: 0.06,
   },
   {
     id: "1625854",
@@ -186,7 +184,7 @@ const ecoProducts = [
     rating: 5,
     image: "/image19.png",
     ecoFriendly: true,
-    CO2: 0.25, // Updated: Low, reusable for years
+    CO2: 0.25,
   },
   {
     id: "1625957",
@@ -195,11 +193,9 @@ const ecoProducts = [
     rating: 5,
     image: "/image20.png",
     ecoFriendly: true,
-    CO2: 0.09, // Updated: Low, reusable for years
+    CO2: 0.09,
   },
 ];
-
-
 
 // CO2 level helper
 function getCO2Level(CO2) {
@@ -210,52 +206,83 @@ function getCO2Level(CO2) {
   return { label: "High CO₂", color: "bg-red-200 text-red-800" };
 }
 
-// Improved BarGraph for better visibility and difference highlighting
-function BarGraph({ label, value1, value2, color1, color2, unit }) {
-  const max = Math.max(value1, value2, 1);
-  const minBarWidth = 24; // px
-  const width1 = Math.max(Math.round((value1 / max) * 100), 10);
-  const width2 = Math.max(Math.round((value2 / max) * 100), 10);
+// AnimatedBarGraph for popup
+function AnimatedBarGraph({ label, value1, value2, color1, color2, unit }) {
+  const [width1, setWidth1] = useState(0);
+  const [width2, setWidth2] = useState(0);
+  const [showValues, setShowValues] = useState(false);
 
-  // Calculate percentage difference
+  useEffect(() => {
+    setShowValues(false);
+    setWidth1(0);
+    setWidth2(0);
+
+    const max = Math.max(value1, value2, 1);
+    const targetWidth1 = Math.max(Math.round((value1 / max) * 100), 10);
+    const targetWidth2 = Math.max(Math.round((value2 / max) * 100), 10);
+
+    // Animate bars after a short delay for smoother effect
+    const t1 = setTimeout(() => setWidth1(targetWidth1), 50);
+    const t2 = setTimeout(() => setWidth2(targetWidth2), 150);
+
+    // Show values after animation
+    const t3 = setTimeout(() => setShowValues(true), 700);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
+  }, [value1, value2]);
+
+  const minBarWidth = 40; // px
+  const barHeight = 24;
+
   const diff = value1 - value2;
+  const max = Math.max(value1, value2, 1);
   const percentDiff = max !== 0 ? Math.round((diff / max) * 100) : 0;
 
   return (
-    <div className="mb-4">
-      <div className="text-xs font-semibold mb-1">{label}</div>
-      <div className="flex flex-col gap-1">
-        <div className="flex items-center gap-2">
+    <div className="mb-6">
+      <div className="text-sm font-semibold mb-2">{label}</div>
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center gap-3">
           <div
-            className={`h-4 rounded ${color1} flex items-center justify-end pr-2 text-xs text-white`}
+            className={`relative rounded ${color1} transition-all duration-500`}
             style={{
               width: `${width1}%`,
               minWidth: minBarWidth,
-              transition: "width 0.4s",
+              height: barHeight,
             }}
             title={value1 + " " + unit}
-          >
-            {value1} {unit}
-          </div>
-          <span className="text-[10px] text-gray-500 ml-1">Current</span>
+          />
+          {showValues && (
+            <span className="text-base text-gray-700 select-none min-w-[60px]">
+              {value1} {unit}
+            </span>
+          )}
+          <span className="text-xs text-gray-500 ml-2">Current</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <div
-            className={`h-4 rounded ${color2} flex items-center justify-end pr-2 text-xs text-white`}
+            className={`relative rounded ${color2} transition-all duration-500`}
             style={{
               width: `${width2}%`,
               minWidth: minBarWidth,
-              transition: "width 0.4s",
+              height: barHeight,
             }}
             title={value2 + " " + unit}
-          >
-            {value2} {unit}
-          </div>
-          <span className="text-[10px] text-gray-500 ml-1">Eco Alt</span>
+          />
+          {showValues && (
+            <span className="text-base text-gray-700 select-none min-w-[60px]">
+              {value2} {unit}
+            </span>
+          )}
+          <span className="text-xs text-gray-500 ml-2">Eco Alt</span>
         </div>
       </div>
-      {value1 !== value2 && (
-        <div className="text-xs mt-1 text-gray-600">
+      {showValues && value1 !== value2 && (
+        <div className="text-xs mt-2 text-gray-600">
           Difference:{" "}
           <span className={diff > 0 ? "text-green-700" : "text-red-700"}>
             {Math.abs(diff).toFixed(2)} {unit} ({Math.abs(percentDiff)}%)
@@ -555,10 +582,10 @@ function Checkout() {
           </>
         )}
       </div>
-      {/* Modal for eco-friendly alternative with bar graphs and both images */}
+      {/* Modal for eco-friendly alternative with animated bar graphs and both images */}
       {modalProduct && modalCompare && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/10 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-xl w-full text-center">
             <div className="flex justify-center items-center gap-4 mb-4">
               <div>
                 <img
@@ -584,7 +611,7 @@ function Checkout() {
             <p className="mb-4 text-green-700 font-semibold">
               Eco-Friendly Choice!
             </p>
-            <BarGraph
+            <AnimatedBarGraph
               label="CO₂ Emissions"
               value1={modalCompare.CO2}
               value2={modalProduct.CO2}
@@ -592,7 +619,7 @@ function Checkout() {
               color2="bg-green-400"
               unit="kg"
             />
-            <BarGraph
+            <AnimatedBarGraph
               label="Price"
               value1={modalCompare.price}
               value2={modalProduct.price}
