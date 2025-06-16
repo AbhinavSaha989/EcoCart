@@ -1,12 +1,48 @@
-# React + Vite
+# EcoCart with Amazon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 HackOn with Amazon Season 5 Submission  
+**Team:** Runtime Terror
 
-Currently, two official plugins are available:
+**Team Members:**  
+- Yasharth Shukla  
+- Tejash Kapoor  
+- Abhinav Saha  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Website:
+    ([EcoCart](https://eco-cart-pi.vercel.app/))
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Overview
+
+EcoCart is a sustainable shopping assistant built for Amazon, designed to help users make eco-friendly choices, track their carbon savings, and visualize their environmental impact.  
+This project was created as part of **HackOn with Amazon Season 5**.
+
+---
+
+## 🌱 Features
+
+- **Smart Cart:**  
+  See the carbon footprint of your cart and get eco-friendly product suggestions.
+
+- **Smart Packaging Optimization:**  
+  Reduce packaging waste and CO₂ emissions with intelligent shipping options.
+
+- **Personal Dashboard:**  
+  Track your monthly carbon savings, set goals, and unlock eco achievements.
+
+- **Animated Comparisons:**  
+  Visualize the impact of switching to greener alternatives with animated graphs.
+
+- **Donation Rounding:**  
+  Round up your purchase to support green causes.
+
+---
+
+## 🖥️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS, Vite  
+- **State Management:** Zustand  
+- **Charts:** Recharts  
+- **Routing:** React Router  
+- **Deployment:** Vercel 
