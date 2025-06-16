@@ -1,48 +1,65 @@
-# EcoCart with Amazon
+# 🌿 EcoCart – HackOn with Amazon Season 5 Submission
 
-## 🚀 HackOn with Amazon Season 5 Submission  
-**Team:** Runtime Terror
+## 🚀 Team: Runtime Terror
 
-**Team Members:**  
+**Team Members**  
 - Yasharth Shukla  
 - Tejash Kapoor  
 - Abhinav Saha  
 
 ---
 
-## Website:
-    ([EcoCart](https://eco-cart-pi.vercel.app/))
-
-## Overview
-
-EcoCart is a sustainable shopping assistant built for Amazon, designed to help users make eco-friendly choices, track their carbon savings, and visualize their environmental impact.  
-This project was created as part of **HackOn with Amazon Season 5**.
+## 🌐 Live Demo  
+🔗 [EcoCart Website](https://eco-cart-pi.vercel.app/)
 
 ---
 
-## 🌱 Features
+## 📄 Idea Submission PDF  
+[View our original idea submission (PDF)](https://drive.google.com/file/d/1sw9AFPz0XeTjs_cmt93rNBbQG9yb8vQy/view?usp=sharing)
 
-- **Smart Cart:**  
-  See the carbon footprint of your cart and get eco-friendly product suggestions.
 
-- **Smart Packaging Optimization:**  
-  Reduce packaging waste and CO₂ emissions with intelligent shipping options.
-
-- **Personal Dashboard:**  
-  Track your monthly carbon savings, set goals, and unlock eco achievements.
-
-- **Animated Comparisons:**  
-  Visualize the impact of switching to greener alternatives with animated graphs.
-
-- **Donation Rounding:**  
-  Round up your purchase to support green causes.
 
 ---
 
-## 🖥️ Tech Stack
+## 🌍 Overview
 
-- **Frontend:** React, Tailwind CSS, Vite  
-- **State Management:** Zustand  
-- **Charts:** Recharts  
-- **Routing:** React Router  
-- **Deployment:** Vercel 
+**EcoCart** is a sustainable shopping assistant designed to integrate seamlessly with the Amazon shopping experience. It helps users make climate-conscious decisions by showing real-time carbon footprints, suggesting greener alternatives, and promoting group-based sustainability.
+
+EcoCart aims to **bridge the intent–action gap** in eco-friendly shopping using **gamification**, **behavioral nudges**, and **visual insights** — all while making the experience fun, social, and engaging.
+
+---
+
+## 🌱 Key Features
+
+- 🛒 **Smart Cart with Eco Impact**  
+  See your cart’s carbon footprint in real-time and explore eco-friendly product suggestions.
+
+- 📦 **Packaging Optimization**  
+  Group products to reduce shipping waste and emissions based on simulated warehouse data.
+
+- 📊 **Personal Impact Dashboard**  
+  View your carbon savings, quest progress, and Green Chain group stats.
+
+- 📈 **Animated What-If Comparisons**  
+  Instantly compare current items with greener options using animated CO₂ graphs.
+
+- 🎯 **Gamified EcoQuests**  
+  Complete weekly challenges, earn EcoPoints, unlock badges, and track your streak.
+
+- 💚 **Donation Rounding**  
+  Round up your cart total to contribute to verified green initiatives like tree planting or ocean cleanup.
+
+---
+
+## 🧱 Tech Stack
+
+| Layer          | Tools Used                   |
+|----------------|-------------------------------|
+| Frontend       | React, Tailwind CSS, Vite     |
+| State Mgmt     | Zustand                       |
+| Charts         | Recharts                      |
+| Routing        | React Router DOM              |
+| Deployment     | Vercel                        |
+
+---
+
