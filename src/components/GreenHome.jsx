@@ -1,5 +1,5 @@
 import GreenProduct from "./GreenProduct";
-import ImageSliderGreen from "./GreenImageslider";
+import ImageSlider from "./Imageslider";
 
 function GreenHome() {
   return (
@@ -7,7 +7,7 @@ function GreenHome() {
       {/* Main Container */}
       <div className="flex justify-center mx-auto max-w-[2000px]">
         <div className="w-full mb-16">
-          <ImageSliderGreen />
+          <ImageSlider />
         </div>
       </div>
 

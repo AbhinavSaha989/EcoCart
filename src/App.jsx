@@ -28,7 +28,7 @@ const App = () => {
         path="/ecocart"
         element={[<GreenHeader />, <GreenNavbar />, <GreenHome />, <Footer />]}
       />
-      <Route path="/green-chain" element = {[<Header />, <Navbar />, <GreenChain /> ,<Footer />]} />
+      <Route path="/green-chain" element = {[<GreenHeader />, <GreenNavbar />, <GreenChain /> ,<Footer />]} />
       <Route
         path="/product/:id"
         element={[<GreenHeader />, <GreenNavbar />, <ProductDetails />, <Footer />]}

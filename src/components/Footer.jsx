@@ -59,6 +59,10 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+
+      <div className="text-center py-3 text-xs bg-[#1a232f] text-gray-400">
+        © 2025 | Team Runtime Terror. All rights reserved. HackOn with Amazon Season 5
+      </div>
     </footer>
   );
 };

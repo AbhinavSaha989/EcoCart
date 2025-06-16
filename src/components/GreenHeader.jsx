@@ -11,7 +11,7 @@ function GreenHeader() {
   };
 
   return (
-    <div className="h-14 flex items-center bg-[#4a7352] sticky top-0 z-50 px-4">
+    <div className="h-14 flex items-center bg-[#28893c] sticky top-0 z-50 px-4">
       {/* Logo */}
       <Link to="/">
         <img
@@ -42,12 +42,7 @@ function GreenHeader() {
           </div>
         </Link>
 
-        <Link to="/#" className="hover:underline">
-          <div>
-            <p className="text-xs">Returns</p>
-            <p className="font-bold">& Orders</p>
-          </div>
-        </Link>
+        
 
         <Link to="/dashboard" className="hover:underline">
           <div>

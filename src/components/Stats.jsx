@@ -6,7 +6,7 @@ const dashboardStats = [
   { id: 2, label: "Plastic Saved", value: "9 units", key: "plasticSaved" },
   { id: 3, label: "Trees Equivalent", value: "1.1", key: "treesEquivalent" },
   { id: 4, label: "Eco Purchases", value: "18", key: "ecoPurchases" },
-  { id: 5, label: "Money Saved", value: "₹420", key: "moneySaved" },
+  { id: 5, label: "Money Saved", value: "$59", key: "moneySaved" },
   { id: 6, label: "Eco Level", value: "Green Guardian", key: "ecoLevel" },
 ];
 
