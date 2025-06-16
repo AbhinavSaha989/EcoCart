@@ -53,7 +53,7 @@ EcoCart aims to **bridge the intent–action gap** in eco-friendly shopping usin
 
 ## 🧱 Tech Stack
 
-| Layer          | Tools Used                   |
+| Layer          | Tools Used                    |
 |----------------|-------------------------------|
 | Frontend       | React, Tailwind CSS, Vite     |
 | State Mgmt     | Zustand                       |
