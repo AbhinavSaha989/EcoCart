@@ -297,6 +297,7 @@ function Checkout() {
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const clearCart = useCartStore((state) => state.clearCart);
+  const addToCart = useCartStore((state) => state.addToCart); // <-- Add this line
   const navigate = useNavigate();
 
   const [modalProduct, setModalProduct] = useState(null);
@@ -367,6 +368,15 @@ function Checkout() {
     }
     // fallback: first eco product
     return ecoProducts[0];
+  };
+
+  const handleSwapProduct = () => {
+    if (modalCompare && modalProduct) {
+      removeFromCart(modalCompare.id);
+      addToCart(modalProduct);
+      setModalProduct(null);
+      setModalCompare(null);
+    }
   };
 
   return (
@@ -627,30 +637,37 @@ function Checkout() {
               color2="bg-green-400"
               unit="$"
             />
-            <button
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mr-2"
-              onClick={() => {
-                setModalProduct(null);
-                setModalCompare(null);
-              }}
-            >
-              Close
-            </button>
-            <Link
-              to="/ecocart"
-              className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded shadow ml-2"
-              onClick={() => {
-                setModalProduct(null);
-                setModalCompare(null);
-              }}
-            >
-              View All Eco Products
-            </Link>
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              <button
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                onClick={handleSwapProduct}
+              >
+                Swap with Eco Alternative
+              </button>
+              <button
+                className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+                onClick={() => {
+                  setModalProduct(null);
+                  setModalCompare(null);
+                }}
+              >
+                Close
+              </button>
+              <Link
+                to="/ecocart"
+                className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded shadow"
+                onClick={() => {
+                  setModalProduct(null);
+                  setModalCompare(null);
+                }}
+              >
+                View All Eco Products
+              </Link>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 }
-
 export default Checkout;
