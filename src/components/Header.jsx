@@ -1,15 +1,43 @@
 import { Link } from "react-router-dom";
 import useCartStore from "../store/cartStore"; // <-- Add this import
+import { useEffect, useRef, useState } from "react";
 
 function Header() {
   const cartCount = useCartStore((state) => state.cart.length); // <-- Get cart count
+  const cart = useCartStore((state) => state.cart);
+  const [showCartNotif, setShowCartNotif] = useState(false);
+  const prevCartLen = useRef(cart.length);
+
+  useEffect(() => {
+    if (cart.length > prevCartLen.current) {
+      setShowCartNotif(true);
+      const timer = setTimeout(() => setShowCartNotif(false), 2000);
+      return () => clearTimeout(timer);
+    }
+    prevCartLen.current = cart.length;
+  }, [cart.length]);
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0, { behavior: "instant" });
   };
 
   return (
-    <div className="w-screen max-w-full overflow-hidden h-[60px] flex items-center bg-[#131921] sticky top-0 z-[100] px-4 box-border">
+    <div className="w-screen max-w-full overflow-hidden h-[60px] flex items-center bg-[#131921] sticky top-0 z-[100] px-4 box-border ">
+      {/* Notification at the bottom */}
+      <div
+        className={`fixed bottom-6 right-6 z-[100] transition-all duration-300 ${
+          showCartNotif
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        style={{
+          minWidth: "180px",
+        }}
+      >
+        <div className="bg-[#131921] text-white px-4 py-2 rounded shadow-lg text-center font-bold">
+          Item added to cart!
+        </div>
+      </div>
       <Link to="/">
         <img
           className="w-[100px] object-contain mr-4 mt-[18px] shrink-0"
