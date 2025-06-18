@@ -42,7 +42,7 @@ EcoCart aims to **bridge the intent–action gap** in eco-friendly shopping usin
   Form eco-conscious groups with friends/family to complete group quests and save together.
 
 - 🌟 **Eco Score with Breakdown**  
-  Products are rated based on Reduce, Reuse, and Resale parameters to help users make better choices.
+  Products are rated based on Recycle, Reuse, and Resale parameters to help users make better choices.
 
 - 🎯 **Gamified EcoQuests**  
   Complete weekly challenges, earn EcoPoints, unlock badges, and track your streak.
