@@ -58,7 +58,7 @@ EcoCart aims to **bridge the intent–action gap** in eco-friendly shopping usin
 ## 🎬 Feature Showcase (Autoplay GIFs)
 
 ### 1️⃣ EcoCart Launch Button  
-Our all new EcoCart houses all the eco friendly alternatives to the products you see on the home pages. Your one and only stop for all you eco friendly needs.
+Our all new EcoCart houses all the eco friendly alternatives to the products you see on the home pages. Your one and only stop for all your eco friendly needs.
 ![Launch GIF](./src/assets/ecocart%20switch.gif)
 
 ### 2️⃣ Personal Dashboard  
@@ -78,7 +78,7 @@ Why buy something that hurts this beautiful planet that we live in. Check out th
 ![Eco Alternatives GIF](./src/assets/eco%20alternative.gif)
 
 ### 6️⃣ Smart Packaging + Round-Up for Donations 
-Optimize your delivery experience to your liking and maybe offer up some donations a win win situation.
+Optimize your delivery experience to your liking and maybe offer up some donations. (truly a win win situation)
 ![Smart Packaging GIF](./src/assets/smart%20packaging+donation.gif)
 
 ### 7️⃣ ♻️ Eco Score with 3Rs Breakdown  
