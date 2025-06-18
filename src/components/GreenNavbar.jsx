@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MonthlyEcoQuest from "./MonthlyEcoQuest";
 
 const rewardsList = [
   { name: "Basil Seeds", type: "seed", icon: "🌱", claimed: false },
@@ -8,15 +9,20 @@ const rewardsList = [
   { name: "Marigold Seeds", type: "seed", icon: "🌼", claimed: false },
 ];
 
-const progressPercent = 80; 
-
 const GreenNavbar = () => {
   const [showRewards, setShowRewards] = useState(false);
   const [claimed, setClaimed] = useState(false);
+  const [progressPercent, setProgressPercent] = useState(80); // Default progress
+  const [showEcoQuest, setShowEcoQuest] = useState(false);
+
+  // Handler to simulate quest completion and fill the reward bar
+  const handleCompleteQuest = () => {
+    setProgressPercent(100);
+    setShowEcoQuest(false);
+  };
 
   const handleClaimReward = () => {
     setClaimed(true);
-    
   };
 
   return (
@@ -102,10 +108,16 @@ const GreenNavbar = () => {
           </div>
           <span className="text-xs ml-2">{progressPercent}%</span>
           <button
-            className="ml-4 px-3 py-1 bg-[#14b451] text-white rounded hover:bg-[#FF9900] text-xs"
+            className="ml-2 px-3 py-1 bg-[#14b451] text-white rounded hover:bg-[#FF9900] text-xs"
             onClick={() => setShowRewards(true)}
           >
             Rewards
+          </button>
+          <button
+            className="ml-2 px-3 py-1 bg-[#FF9900] text-white rounded hover:bg-[#14b451] text-xs"
+            onClick={() => setShowEcoQuest(true)}
+          >
+            EcoQuests
           </button>
         </div>
       </div>
@@ -165,8 +177,33 @@ const GreenNavbar = () => {
           </div>
         </div>
       )}
+      {/* EcoQuest Popup */}
+      {showEcoQuest && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
+          <div className="bg-white rounded-lg shadow-lg p-6 min-w-[350px] max-w-md text-center">
+            <h2 className="text-lg font-bold text-[#14b451] mb-2">
+              Monthly Eco Quests
+            </h2>
+            <div className="text-black">
+              <MonthlyEcoQuest />
+            </div>
+            <button
+              className="mt-4 bg-[#14b451] text-white px-4 py-1 rounded hover:bg-[#FF9900]"
+              onClick={handleCompleteQuest}
+            >
+              Mark Quest as Completed
+            </button>
+            <button
+              className="mt-2 ml-2 bg-gray-300 text-black px-4 py-1 rounded hover:bg-gray-400"
+              onClick={() => setShowEcoQuest(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}  
 
 export default GreenNavbar;
