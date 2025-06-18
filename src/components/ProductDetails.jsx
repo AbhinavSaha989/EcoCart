@@ -173,7 +173,7 @@ const mockProducts = [
 function ProductDetails() {
   const { id } = useParams();
 
-  // Find product by id or fallback to first
+  
   const product = mockProducts.find((p) => p.id === id) || mockProducts[0];
 
   const [animatedScore, setAnimatedScore] = useState(0);
@@ -184,7 +184,7 @@ function ProductDetails() {
   const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
-    // Animate Eco Score
+   
     let start = 0;
     const duration = 1000;
     const increment = product.ecoScore / (duration / 20);
@@ -199,7 +199,7 @@ function ProductDetails() {
       }
     }, 20);
 
-    // Animate Bars
+    
     setTimeout(() => {
       setAnimatedWidths(product.targetStats.map((stat) => stat.value));
     }, 200);

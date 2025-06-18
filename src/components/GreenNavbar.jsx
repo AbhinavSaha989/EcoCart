@@ -12,10 +12,10 @@ const rewardsList = [
 const GreenNavbar = () => {
   const [showRewards, setShowRewards] = useState(false);
   const [claimed, setClaimed] = useState(false);
-  const [progressPercent, setProgressPercent] = useState(80); // Default progress
+  const [progressPercent, setProgressPercent] = useState(80); 
   const [showEcoQuest, setShowEcoQuest] = useState(false);
 
-  // Handler to simulate quest completion and fill the reward bar
+  
   const handleCompleteQuest = () => {
     setProgressPercent(100);
     setShowEcoQuest(false);

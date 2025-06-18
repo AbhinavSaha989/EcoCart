@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useCartStore from "../store/cartStore"; // <-- Import Zustand store
+import useCartStore from "../store/cartStore";
 
 function Productbutton({ title, image, id, price, rating, badge_id }) {
-  const addToCart = useCartStore((state) => state.addToCart); // <-- Zustand addToCart
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
@@ -11,7 +11,7 @@ function Productbutton({ title, image, id, price, rating, badge_id }) {
 
   const handleAddToCart = () => {
     addToCart({ id, title, image, price, rating, badge_id });
-    // Optionally, you can show a toast or feedback here
+    
   };
 
   return (

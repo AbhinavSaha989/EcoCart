@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useCartStore from "../store/cartStore";
 import { Link, useNavigate } from "react-router-dom";
 
-// Non-eco-friendly (Home) products
+
 const nonEcoProducts = [
   {
     id: "12321341",
@@ -101,7 +101,7 @@ const nonEcoProducts = [
   },
 ];
 
-// Eco-friendly (GreenHome) products with updated CO2 values
+
 const ecoProducts = [
   {
     id: "843800",
@@ -197,7 +197,7 @@ const ecoProducts = [
   },
 ];
 
-// CO2 level helper
+
 function getCO2Level(CO2) {
   if (CO2 < 0.5)
     return { label: "Low CO₂", color: "bg-green-200 text-green-800" };
@@ -206,7 +206,6 @@ function getCO2Level(CO2) {
   return { label: "High CO₂", color: "bg-red-200 text-red-800" };
 }
 
-// AnimatedBarGraph for popup
 function AnimatedBarGraph({ label, value1, value2, color1, color2, unit }) {
   const [width1, setWidth1] = useState(0);
   const [width2, setWidth2] = useState(0);
@@ -297,7 +296,7 @@ function Checkout() {
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const clearCart = useCartStore((state) => state.clearCart);
-  const addToCart = useCartStore((state) => state.addToCart); // <-- Add this line
+  const addToCart = useCartStore((state) => state.addToCart); 
   const navigate = useNavigate();
 
   const [modalProduct, setModalProduct] = useState(null);
@@ -311,7 +310,7 @@ function Checkout() {
   const greenCauseAmount = roundUp ? (roundedTotal - total).toFixed(2) : "0.00";
   const totalCO2 = cart.reduce((sum, item) => sum + (item.CO2 || 0), 0);
 
-  // --- Smart Packaging Optimization Logic ---
+  
   const options = [
     {
       label: "Shipped from the same warehouse",
@@ -330,7 +329,7 @@ function Checkout() {
     },
   ];
 
-  // Only count CO2 saved for selected and available options
+ 
   const totalSaved =
     smartPack && cart.length > 0
       ? options.reduce(
@@ -346,7 +345,7 @@ function Checkout() {
     setSelectedOptions((prev) => prev.map((v, i) => (i === idx ? !v : v)));
   };
 
-  // When smartPack is toggled off or cart changes, uncheck all options
+ 
   useEffect(() => {
     if (!smartPack || cart.length === 0)
       setSelectedOptions([false, false, false]);
@@ -357,16 +356,16 @@ function Checkout() {
     navigate("/order-confirmation");
   };
 
-  // Find the recommended eco alternative for a non-eco product by index
+
   const getEcoAlternative = (item) => {
-    // Find index of item in nonEcoProducts by id and title
+    
     const idx = nonEcoProducts.findIndex(
       (p) => p.id === item.id && p.title === item.title
     );
     if (idx !== -1 && ecoProducts[idx]) {
       return ecoProducts[idx];
     }
-    // fallback: first eco product
+    
     return ecoProducts[0];
   };
 
@@ -552,7 +551,7 @@ function Checkout() {
                 );
               })}
             </ul>
-            {/* Round up for green cause */}
+            {/* Round up */}
             <div className="flex items-center mt-6 mb-2">
               <input
                 id="roundup"
@@ -592,7 +591,7 @@ function Checkout() {
           </>
         )}
       </div>
-      {/* Modal for eco-friendly alternative with animated bar graphs and both images */}
+      {/* eco-friendly alternative */}
       {modalProduct && modalCompare && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/10 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-xl w-full text-center">

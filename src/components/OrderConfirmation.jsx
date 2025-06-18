@@ -3,7 +3,7 @@ function OrderConfirmation() {
   // Example censored address
   const censoredAddress = "12XX, Eco Street, Green City";
 
-  // Calculate delivery date (7 days from now)
+
   const deliveryDate = new Date();
   deliveryDate.setDate(deliveryDate.getDate() + 7);
   const deliveryDateStr = deliveryDate.toLocaleDateString(undefined, {

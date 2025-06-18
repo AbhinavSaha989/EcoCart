@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Search } from "lucide-react";
-import useCartStore from "../store/cartStore"; // <-- Import Zustand store
+import useCartStore from "../store/cartStore"; 
 
 function GreenHeader() {
-  const cartCount = useCartStore((state) => state.cart.length); // <-- Zustand cart count
+  const cartCount = useCartStore((state) => state.cart.length); 
   const cart = useCartStore((state) => state.cart);
   const [showCartNotif, setShowCartNotif] = useState(false);
   const prevCartLen = useRef(cart.length);

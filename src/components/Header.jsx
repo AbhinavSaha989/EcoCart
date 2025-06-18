@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import useCartStore from "../store/cartStore"; // <-- Add this import
+import useCartStore from "../store/cartStore"; 
 import { useEffect, useRef, useState } from "react";
 
 function Header() {
-  const cartCount = useCartStore((state) => state.cart.length); // <-- Get cart count
+  const cartCount = useCartStore((state) => state.cart.length);
   const cart = useCartStore((state) => state.cart);
   const [showCartNotif, setShowCartNotif] = useState(false);
   const prevCartLen = useRef(cart.length);
