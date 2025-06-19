@@ -15,12 +15,12 @@
 ---
 
 ## Video Demo of the Prototype
-[Demo Video](https://drive.google.com/file/d/10N0e0z3ZNVQxqxoUmzpsse20Ti0BApDQ/view?usp=sharing)
+🔗 [Demo Video](https://drive.google.com/file/d/10N0e0z3ZNVQxqxoUmzpsse20Ti0BApDQ/view?usp=sharing)
 
 ---
 
 ## Idea Submission PDF  
-[View our original idea submission (PDF)](https://drive.google.com/file/d/1sw9AFPz0XeTjs_cmt93rNBbQG9yb8vQy/view?usp=sharing)
+🔗 [View our original idea submission (PDF)](https://drive.google.com/file/d/1sw9AFPz0XeTjs_cmt93rNBbQG9yb8vQy/view?usp=sharing)
 
 ---
 
