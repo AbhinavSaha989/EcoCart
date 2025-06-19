@@ -1,6 +1,6 @@
-# 🌿 EcoCart – HackOn with Amazon Season 5 Submission
+# EcoCart – HackOn with Amazon Season 5 Submission
 
-## 🚀 Team: Runtime Terror
+## Team: Runtime Terror
 
 **Team Members**  
 - Yasharth Shukla  
@@ -9,17 +9,22 @@
 
 ---
 
-## 🌐 Live Demo  
+## Live Demo  
 🔗 [EcoCart Website](https://eco-cart-pi.vercel.app/)
 
 ---
 
-## 📄 Idea Submission PDF  
+## Video Demo of the Prototype
+[Demo Video](https://drive.google.com/file/d/10N0e0z3ZNVQxqxoUmzpsse20Ti0BApDQ/view?usp=sharing)
+
+---
+
+## Idea Submission PDF  
 [View our original idea submission (PDF)](https://drive.google.com/file/d/1sw9AFPz0XeTjs_cmt93rNBbQG9yb8vQy/view?usp=sharing)
 
 ---
 
-## 🌍 Overview
+## Overview
 
 **EcoCart** is a sustainable shopping assistant designed to integrate seamlessly with the Amazon shopping experience. It helps users make climate-conscious decisions by showing real-time carbon footprints, suggesting greener alternatives, and promoting group-based sustainability.
 
@@ -27,35 +32,35 @@ EcoCart aims to **bridge the intent–action gap** in eco-friendly shopping usin
 
 ---
 
-## 🌱 Key Features
+## Key Features
 
-- 🛒 **Smart Cart with Eco Impact**  
+- **Smart Cart with Eco Impact**  
   See your cart’s carbon footprint in real-time and explore eco-friendly product suggestions.
 
-- 📦 **Packaging Optimization**  
+- **Packaging Optimization**  
   Group products to reduce shipping waste and emissions based on simulated warehouse data.
 
-- 📊 **Personal Impact Dashboard**  
+- **Personal Impact Dashboard**  
   View your carbon savings, quest progress, and level up.
 
-- 👥 **Green Chain**  
+- **Green Chain**  
   Form eco-conscious groups with friends/family to complete group quests and save together.
 
-- 🌟 **Eco Score with Breakdown**  
+- **Eco Score with Breakdown**  
   Products are rated based on Recycle, Reuse, and Resale parameters to help users make better choices.
 
-- 🎯 **Gamified EcoQuests**  
+- **Gamified EcoQuests**  
   Complete weekly challenges, earn EcoPoints, unlock badges, and track your streak.
 
-- 💚 **Donation Rounding**  
+- **Donation Rounding**  
   Round up your cart total to contribute to verified green initiatives like tree planting or ocean cleanup.
 
-- 🎁 **Eco Reward System**  
+- **Eco Reward System**  
   Claim rewards like seed kits as you progress through eco quests and grow your personal green impact.
 
 ---
 
-## 🎬 Feature Showcase (Autoplay GIFs)
+## Feature Showcase (Autoplay GIFs)
 
 ### 1️⃣ EcoCart Launch Button  
 Our all new EcoCart houses all the eco friendly alternatives to the products you see on the home pages. Your one and only stop for all your eco friendly needs.
@@ -87,7 +92,7 @@ See how a product scores on the 3R principle higher the score the better that pr
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer          | Tools Used                    |
 |----------------|-------------------------------|
@@ -99,7 +104,7 @@ See how a product scores on the 3R principle higher the score the better that pr
 
 ---
 
-## 💡 Next Steps (Beyond Prototype)
+## Next Steps (Beyond Prototype)
 - Integration with real Amazon API (for dynamic product data).
 - Backend logic to persist user progress, reward tracking, and CO₂ history.
 - Advanced recommendation engine using LLMs for sustainability suggestions.
